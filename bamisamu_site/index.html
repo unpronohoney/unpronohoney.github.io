@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BaMiSaMu - Developer Page</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #212121;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #FF6F00 0%, #388E3C 100%);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 3.5rem;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .applications-title {
+      font-size: 2rem;
+      margin: 40px 20px 20px;
+      color: #388E3C;
+      font-weight: 600;
+      text-align: center;
+      letter-spacing: 0.8px;
+    }
+
+    .apps-container {
+      display: flex;
+      overflow-x: auto;
+      padding: 0 20px 50px;
+      gap: 25px;
+      scrollbar-width: thin;
+      scrollbar-color: #388E3C #e0e0e0;
+    }
+    /* Webkit scrollbar */
+    .apps-container::-webkit-scrollbar {
+      height: 8px;
+    }
+    .apps-container::-webkit-scrollbar-track {
+      background: #e0e0e0;
+      border-radius: 8px;
+    }
+    .apps-container::-webkit-scrollbar-thumb {
+      background-color: #388E3C;
+      border-radius: 8px;
+    }
+
+    .app-card {
+      background-color: white;
+      border: none;
+      border-radius: 16px;
+      padding: 25px 20px 30px;
+      min-width: 270px;
+      flex-shrink: 0;
+      box-shadow: 0 6px 14px rgba(56,142,60,0.15);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .app-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(56,142,60,0.3);
+    }
+
+    .app-card img {
+      width: 120px;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .app-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+      color: #212121;
+      font-weight: 700;
+    }
+
+    .app-card p {
+      font-size: 1rem;
+      color: #555;
+      margin: 0 0 15px;
+      flex-grow: 1;
+      line-height: 1.4;
+    }
+
+    .app-card a {
+      color: #FF6F00;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.2s ease;
+    }
+
+    .app-card a:hover {
+      color: #388E3C;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #777;
+      font-size: 0.95rem;
+      border-top: 1px solid #ddd;
+      font-weight: 500;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>BaMiSaMu</h1>
+  </div>
+
+  <div class="applications-title">Applications</div>
+
+  <div class="apps-container">
+    <div class="app-card" tabindex="0" role="button">
+      <img src="unisaver_icon.png" alt="UniSaver Logo" />
+      <h3>UniSaver</h3>
+      <p>University GPA Calculator</p>
+      <a href="unisaver.html" rel="noopener noreferrer">View Details</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 BaMiSaMu. All rights reserved.
+  </footer>
+</body>
+</html>
