@@ -1,151 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/png" href="ucube_icon.png" />
-  <title>BaMiSaMu</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9f9;
-      color: #212121;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirza Bal | Mobile Developer & Industrial Engineer</title>
+    <link rel="icon" type="image/png" href="favicon_unisaver.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #6366f1; /* Indigo */
+            --accent-hover: #4f46e5;
+        }
 
-    .header {
-      background: linear-gradient(135deg, #FF6F00 0%, #388E3C 100%);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-    }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    .header h1 {
-      margin: 0;
-      font-size: 3.5rem;
-      letter-spacing: 1.5px;
-      font-weight: 700;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem;
+        }
 
-    .applications-title {
-      font-size: 2rem;
-      margin: 40px 20px 20px;
-      color: #388E3C;
-      font-weight: 600;
-      text-align: center;
-      letter-spacing: 0.8px;
-    }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-    .apps-container {
-      display: flex;
-      overflow-x: auto;
-      padding: 0 20px 50px;
-      gap: 25px;
-      scrollbar-width: thin;
-      scrollbar-color: #388E3C #e0e0e0;
-    }
-    /* Webkit scrollbar */
-    .apps-container::-webkit-scrollbar {
-      height: 8px;
-    }
-    .apps-container::-webkit-scrollbar-track {
-      background: #e0e0e0;
-      border-radius: 8px;
-    }
-    .apps-container::-webkit-scrollbar-thumb {
-      background-color: #388E3C;
-      border-radius: 8px;
-    }
+        /* Header */
+        header {
+            text-align: center;
+            padding: 4rem 0;
+            animation: fadeIn 1s ease-in;
+        }
 
-    .app-card {
-      background-color: white;
-      border: none;
-      border-radius: 16px;
-      padding: 25px 20px 30px;
-      min-width: 270px;
-      flex-shrink: 0;
-      box-shadow: 0 6px 14px rgba(56,142,60,0.15);
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
 
-    .app-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 24px rgba(56,142,60,0.3);
-    }
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+        }
 
-    .app-card img {
-      width: 120px;
-      height: auto;
-      margin-bottom: 20px;
-      border-radius: 12px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
+        /* Projects Section */
+        .section-title {
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--card-bg);
+            padding-bottom: 0.5rem;
+            margin: 3rem 0 2rem;
+            color: var(--text-primary);
+        }
 
-    .app-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.4rem;
-      color: #212121;
-      font-weight: 700;
-    }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
 
-    .app-card p {
-      font-size: 1rem;
-      color: #555;
-      margin: 0 0 15px;
-      flex-grow: 1;
-      line-height: 1.4;
-    }
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
 
-    .app-card a {
-      color: #FF6F00;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: color 0.2s ease;
-    }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: var(--accent);
+        }
 
-    .app-card a:hover {
-      color: #388E3C;
-      text-decoration: underline;
-    }
+        .project-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
 
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      color: #777;
-      font-size: 0.95rem;
-      border-top: 1px solid #ddd;
-      font-weight: 500;
-      background-color: #fff;
-    }
-  </style>
+        .app-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            margin-right: 1rem;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .project-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(99, 102, 241, 0.1);
+            color: #818cf8;
+            padding: 0.25rem 0.75rem;
+            border-radius: 99px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--card-bg);
+            padding-top: 2rem;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.25rem; }
+            .container { padding: 0 1rem; }
+        }
+    </style>
 </head>
 <body>
-  <div class="header">
-    <h1>BaMiSaMu</h1>
-  </div>
 
-  <div class="applications-title">Applications</div>
+    <div class="container">
+        <header>
+            <h1>Mirza Bal</h1>
+            <p class="subtitle">Mobile Application Developer & Industrial Engineer</p>
+            <p style="color: var(--text-secondary); margin-top: 10px; font-size: 0.9rem;">
+                Crafting efficient, user-centric mobile experiences with Flutter.
+            </p>
+        </header>
 
-  <div class="apps-container">
-    <div class="app-card" tabindex="0" role="button">
-      <img src="unisaver_logo.png" alt="UniSaver Logo" />
-      <h3>UniSaver</h3>
-      <p>University GPA Calculator</p>
-      <a href="unisaver.html" rel="noopener noreferrer">View Details</a>
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            
+            <a href="unisaver.html" class="project-card">
+                <div class="project-header">
+                    <img src="unisaver_icon.png" alt="UniSaver Icon" class="app-icon">
+                    <div>
+                        <div class="project-name">UniSaver</div>
+                        <div style="font-size: 0.8rem; color: #4ade80;">Live on App Store</div>
+                    </div>
+                </div>
+                <p class="project-desc">
+                    Smart GPA Calculator & Planner app. Features transcript integration via PDF, probability algorithms for target grades, and local database management.
+                </p>
+                <div class="tags">
+                    <span class="tag">Flutter</span>
+                    <span class="tag">Dart</span>
+                    <span class="tag">Education</span>
+                    <span class="tag">Algorithm</span>
+                </div>
+            </a>
+
+            <div class="project-card" style="opacity: 0.7; cursor: default;">
+                <div class="project-header">
+                    <div class="app-icon" style="background: #334155; display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 24px;">🌱</span>
+                    </div>
+                    <div>
+                        <div class="project-name">EcoMarket</div>
+                        <div style="font-size: 0.8rem; color: #facc15;">In Development</div>
+                    </div>
+                </div>
+                <p class="project-desc">
+                    A sustainable marketplace connecting eco-conscious buyers with local sellers. Built with advanced Flutter architecture.
+                </p>
+                <div class="tags">
+                    <span class="tag">Flutter</span>
+                    <span class="tag">E-Commerce</span>
+                    <span class="tag">Green Tech</span>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 class="section-title">Contact</h2>
+        <div style="text-align: center; color: var(--text-secondary);">
+            <p>Interested in collaboration or have a question?</p>
+            <a href="mailto:contact@unpronohoney.com" style="color: var(--accent); text-decoration: none; font-weight: 600; margin-top: 10px; display: inline-block;">Email Me</a>
+        </div>
+
+        <footer>
+            <div class="social-links">
+                <a href="https://github.com/unpronohoney" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+                <a href="https://twitter.com" target="_blank">Twitter</a>
+            </div>
+            <br>
+            <p>&copy; 2026 Mirza Bal. All rights reserved.</p>
+        </footer>
     </div>
-  </div>
 
-  <footer>
-    &copy; 2025 BaMiSaMu. All rights reserved.
-  </footer>
 </body>
 </html>
