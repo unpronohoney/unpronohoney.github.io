@@ -1,178 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/png" href="favicon_unisaver.png" />
-  <title>UniSaver</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(180deg, #f8f6ff 0%, #ede8ff 100%);
-      color: #212121;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-    
-    .container {
-      max-width: 760px;
-      margin: 50px auto 60px;
-      padding: 0 24px;
-      box-sizing: border-box;
-    }
-    
-    .logo {
-      display: block;
-      margin: 0 auto 25px;
-      width: 160px;
-      position: sticky;
-      top: 20px;
-      background: white;
-      z-index: 1000;
-      padding: 8px;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(127,81,194,0.4);
-      transition: box-shadow 0.3s ease;
-    }
-    
-    .logo:hover {
-      box-shadow: 0 10px 40px rgba(127,81,194,0.7);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-itunes-app" content="app-id=6757317963"> <title>UniSaver - Smart GPA Calculator</title>
+    <link rel="icon" type="image/png" href="favicon_unisaver.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6D28D9; /* UniSaver Moru */
+            --primary-dark: #4C1D95;
+            --bg-color: #0f0f12;
+            --text-color: #ffffff;
+            --text-muted: #a1a1aa;
+        }
 
-    
-    h1 {
-      text-align: center;
-      color: #7f51c2;
-      font-size: 2.8rem;
-      margin-bottom: 12px;
-      font-weight: 800;
-      letter-spacing: 1.2px;
-    }
-    
-    .subtitle {
-      text-align: center;
-      color: #555;
-      font-size: 1.3rem;
-      margin-bottom: 38px;
-      font-weight: 600;
-    }
-    
-    h2 {
-      color: #7f51c2;
-      font-size: 1.7rem;
-      margin-top: 48px;
-      margin-bottom: 14px;
-      font-weight: 700;
-      border-bottom: 2px solid #7f51c2;
-      padding-bottom: 6px;
-      max-width: max-content;
-      transition: color 0.3s ease;
-    }
-    
-    h2:hover {
-      color: #5c3b99;
-      border-color: #5c3b99;
-    }
-    
-    p {
-      font-size: 1.05rem;
-      color: #333;
-      margin-bottom: 20px;
-      letter-spacing: 0.02em;
-    }
-    
-    a {
-      color: #7f51c2;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease, text-shadow 0.3s ease;
-      cursor: pointer;
-    }
-    
-    a:hover,
-    a:focus {
-      text-decoration: underline;
-      color: #5c3b99;
-      text-shadow: 0 0 8px rgba(92, 59, 153, 0.6);
-      outline: none;
-    }
-    
-    .back {
-      margin-top: 50px;
-      text-align: center;
-    }
-    
-    .back a {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #7f51c2;
-      border: 2px solid #7f51c2;
-      padding: 10px 22px;
-      border-radius: 10px;
-      display: inline-block;
-      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-      text-decoration: none;
-      cursor: pointer;
-      box-shadow: 0 0 10px rgba(127,81,194,0.2);
-    }
-    
-    .back a:hover,
-    .back a:focus {
-      background-color: #7f51c2;
-      color: white;
-      box-shadow: 0 0 20px rgba(127,81,194,0.8);
-      outline: none;
-    }
-    
-    footer {
-      text-align: center;
-      padding: 28px 20px;
-      color: #777;
-      font-size: 0.9rem;
-      border-top: 1px solid #ddd;
-      font-weight: 500;
-      background-color: #fff;
-      margin-top: 50px;
-    }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
 
-  </style>
+        .hero {
+            position: relative;
+            padding: 6rem 1rem 4rem;
+            text-align: center;
+            background: radial-gradient(circle at 50% 10%, #2e1065 0%, #0f0f12 60%);
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(109, 40, 217, 0.4);
+            margin-bottom: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, #c4b5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .store-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        .store-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .store-btn img {
+            height: 30px;
+            margin-right: 12px;
+        }
+        
+        .store-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .store-text span:first-child { font-size: 0.7rem; opacity: 0.8; }
+        .store-text span:last-child { font-size: 1.1rem; font-weight: 600; }
+
+        .features {
+            padding: 4rem 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: left;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #a78bfa;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer a { color: var(--text-muted); text-decoration: none; margin: 0 10px; }
+        footer a:hover { color: #fff; }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .hero { padding-top: 4rem; }
+        }
+    </style>
 </head>
 <body>
-  <div class="container" role="main">
-    <img src="unisaver_logo.png" alt="UniSaver Logo" class="logo" />
-    <h1>UniSaver</h1>
-    <p class="subtitle">University GPA Calculator App</p>
 
-    <h2>What is UniSaver?</h2>
-    <p>
-      UniSaver was developed to prevent students from being confused by how their GPA will be affected by their courses.
-    </p>
-    <p>
-      Users can calculate their GPA by entering the course information one by one, or after a little bit course information they can get GPA scenarios calculated by UniSaver, or they can skip the course entry process with E-Devlet (Turkish Government) transcript documents and calculate GPA with all courses listed on their transcripts.
-    </p>
+    <section class="hero">
+        <img src="unisaver_logo.png" alt="UniSaver Logo" class="logo">
+        <h1>Calculate, Plan, Succeed.</h1>
+        <p class="tagline">
+            The smartest GPA calculator for university students. Integrate your transcript via e-Devlet, calculate combinations, and plan your graduation path.
+        </p>
 
-    <h2>Send Feedback</h2>
-    <p>
-      You can send feedback in UniSaver for any situation you find wrong, think is wrong, or want to be corrected in the application. Your feedback is very valuable to us.
-    </p>
-    <p>Email: <a href="mailto:unisaverapplication@gmail.com">unisaverapplication@gmail.com</a></p>
+        <div class="download-buttons">
+            <a href="https://apps.apple.com/tr/app/unisaver/id6757317963" class="store-btn">
+                <svg viewBox="0 0 384 512" width="24" fill="white" style="margin-right: 10px;">
+                    <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 46.9 100.9 83.2 100.9 29.3 0 37.3-19.3 75.8-19.3 35.8 0 46.5 19.3 76.6 19.3 33.7 0 63.8-63.5 75.8-95.6-59-24.6-67-93.5-9.2-91.3zM232.1 91.3c15-18.3 24.8-43.8 22-67.3-21.7 1-48 14.5-63.8 33.5-13.6 16.5-26 43.1-23 66.6 24.3 1.9 49.6-15 64.8-32.8z"/>
+                </svg>
+                <div class="store-text">
+                    <span>Download on the</span>
+                    <span>App Store</span>
+                </div>
+            </a>
+            
+            <a href="https://play.google.com/store/apps/details?id=com.unisaver.unisaver" class="store-btn">
+                <svg viewBox="0 0 512 512" width="24" fill="white" style="margin-right: 10px;">
+                    <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+                </svg>
+                <div class="store-text">
+                    <span>GET IT ON</span>
+                    <span>Google Play</span>
+                </div>
+            </a>
+        </div>
+    </section>
 
-    <h2>Download</h2>
-    <p>
-      <a href="https://play.google.com/store/apps/details?id=com.unisaver.unisaver" target="_blank" rel="noopener noreferrer">
-        View UniSaver on Google Play
-      </a>
-    </p>
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📄</div>
+                <h3 class="feature-title">PDF Integration</h3>
+                <p class="feature-desc">Upload your transcript PDF from e-Devlet directly. The app parses your courses and grades instantly.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎲</div>
+                <h3 class="feature-title">Smart Probability</h3>
+                <p class="feature-desc">Not sure which grades you need? Our algorithm calculates grade combinations to hit your target GPA.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Scenario Planning</h3>
+                <p class="feature-desc">Create "What If" scenarios for upcoming terms. See how different letter grades affect your graduation.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💾</div>
+                <h3 class="feature-title">Local & Secure</h3>
+                <p class="feature-desc">Your data stays on your device. We use local databases to keep your academic record private and fast.</p>
+            </div>
+        </div>
+    </section>
 
-    <div class="back">
-      <a href="index.html" aria-label="Back to Developer Page">&larr; Back to Developer Page</a>
-    </div>
-  </div>
+    <footer>
+        <p>
+            <a href="index.html">Developer</a> | 
+            <a href="#">Privacy Policy</a> | 
+            <a href="mailto:contact@unpronohoney.com">Support</a>
+        </p>
+        <p>&copy; 2026 UniSaver. Developed by Mirza Bal.</p>
+    </footer>
 
-  <footer>
-    &copy; 2025 BaMiSaMu. All rights reserved.
-  </footer>
 </body>
 </html>
