@@ -58,25 +58,35 @@
             line-height: 1.6;
         }
 
-        /* Yeni Rozet Stilleri */
+        /* Yeni Rozet Stilleri - Eşitlenmiş */
         .download-buttons {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem; /* Boşluğu biraz azalttık, daha derli toplu dursun */
             flex-wrap: wrap;
             align-items: center;
             margin-top: 2rem;
         }
         
         .store-badge {
-            height: 60px; /* Standart yükseklik */
+            /* Ortak özellikler */
             width: auto;
             transition: transform 0.3s ease, opacity 0.3s;
-            border-radius: 8px; /* Hafif yumuşak köşe */
+            border-radius: 8px;
+        }
+        
+        /* Apple için ideal yükseklik */
+        .store-badge.apple {
+            height: 50px;
+        }
+        
+        /* Google'ın boşluklarını telafi etmek için ona özel yükseklik */
+        .store-badge.google {
+            height: 76px; /* Bu değer, Apple'ın 50px'i ile görsel olarak denk düşer */
         }
         
         .store-badge:hover {
-            transform: translateY(-3px); /* Hover efekti */
+            transform: translateY(-3px);
             opacity: 0.9;
         }
         
@@ -162,13 +172,13 @@
             <a href="https://apps.apple.com/tr/app/unisaver/id6757317963" target="_blank">
                 <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&releaseDate=1276560000" 
                      alt="Download on the App Store" 
-                     class="store-badge">
+                     class="store-badge apple">
             </a>
             
             <a href="https://play.google.com/store/apps/details?id=com.unisaver.unisaver" target="_blank">
                 <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" 
                      alt="Get it on Google Play" 
-                     class="store-badge">
+                     class="store-badge google">
             </a>
         </div>
     </section>
