@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-itunes-app" content="app-id=6757317963"> <title>UniSaver - Smart GPA Calculator</title>
-    
-    işaretlerini kaldırabilirsin. -->
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -59,33 +58,26 @@
             line-height: 1.6;
         }
 
+        /* Yeni Rozet Stilleri */
         .download-buttons {
             display: flex;
             justify-content: center;
             gap: 1.5rem;
             flex-wrap: wrap;
-        }
-
-        .store-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            padding: 12px 24px;
-            display: flex;
             align-items: center;
-            text-decoration: none;
-            color: #fff;
-            transition: all 0.3s;
+            margin-top: 2rem;
         }
-
-        .store-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+        
+        .store-badge {
+            height: 60px; /* Standart yükseklik */
+            width: auto;
+            transition: transform 0.3s ease, opacity 0.3s;
+            border-radius: 8px; /* Hafif yumuşak köşe */
         }
-
-        /* Apple Logo SVG güncellendi ve margin ayarlandı */
-        .store-btn svg {
-            margin-right: 12px;
+        
+        .store-badge:hover {
+            transform: translateY(-3px); /* Hover efekti */
+            opacity: 0.9;
         }
         
         .store-text {
@@ -167,25 +159,16 @@
         </p>
 
         <div class="download-buttons">
-            <a href="https://apps.apple.com/tr/app/unisaver/id6757317963" class="store-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.3056 15.5556C17.3056 18.5344 15.3956 20.3778 13.5689 20.3778C12.6567 20.3778 11.8522 20.0333 10.9656 20.0333C9.99667 20.0333 9.10556 20.4378 8.29222 20.4378C6.28 20.4378 4.20556 18.4556 4.20556 15.38C4.20556 13.1633 5.48667 10.9667 7.62889 10.9667C8.63 10.9667 9.51222 11.5933 10.2389 11.5933C10.8878 11.5933 11.93 10.8067 13.2056 10.8067C14.59 10.8067 15.8933 11.4511 16.5933 12.4522C14.9522 13.4067 14.9278 15.9744 17.3056 15.5556Z" fill="white"/>
-                    <path d="M13.0367 8.31C13.5578 7.62667 13.9456 6.64778 13.9456 5.62222C13.9456 5.49111 13.9344 5.36 13.9111 5.22889C12.9644 5.34333 11.7556 6.01556 11.0656 6.87556C10.5589 7.50111 10.19 8.49556 10.19 9.53556C10.19 9.69333 10.21 9.82111 10.2267 9.93667C11.2878 9.86778 12.4144 9.14222 13.0367 8.31Z" fill="white"/>
-                </svg>
-                <div class="store-text">
-                    <span>Download on the</span>
-                    <span>App Store</span>
-                </div>
+            <a href="https://apps.apple.com/tr/app/unisaver/id6757317963" target="_blank">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&releaseDate=1276560000" 
+                     alt="Download on the App Store" 
+                     class="store-badge">
             </a>
             
-            <a href="https://play.google.com/store/apps/details?id=com.unisaver.unisaver" class="store-btn">
-                <svg viewBox="0 0 512 512" width="24" height="24" fill="white">
-                    <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
-                </svg>
-                <div class="store-text">
-                    <span>GET IT ON</span>
-                    <span>Google Play</span>
-                </div>
+            <a href="https://play.google.com/store/apps/details?id=com.unisaver.unisaver" target="_blank">
+                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" 
+                     alt="Get it on Google Play" 
+                     class="store-badge">
             </a>
         </div>
     </section>
@@ -218,7 +201,7 @@
     <footer>
         <p>
             <a href="index.html">Developer</a> | 
-            <a href="#">Privacy Policy</a> | 
+            <a href="https://sites.google.com/view/unisaverapp/ana-sayfa">Privacy Policy</a> | 
             <a href="mailto:bamisamu@hotmail.com">Support</a>
         </p>
         <p>&copy; 2026 UniSaver. Developed by Mirza Bal.</p>
