@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-itunes-app" content="app-id=6757317963"> <title>UniSaver - Smart GPA Calculator</title>
-
+    <link rel="icon" href="data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M46.1481 41.4815C46.1481 49.4252 41.055 54.3407 36.1839 54.3407C33.7511 54.3407 31.6059 53.4222 29.2417 53.4222C26.6578 53.4222 24.2815 54.5007 22.1126 54.5007C16.7467 54.5007 11.2148 49.2148 11.2148 41.0133C11.2148 35.1022 14.6311 29.2444 20.3437 29.2444C23.0133 29.2444 25.3659 30.9156 27.3037 30.9156C29.0341 30.9156 31.8133 28.8178 35.2148 28.8178C38.9067 28.8178 42.3822 30.5363 44.2489 33.2059C39.8726 35.7511 39.8074 42.5985 46.1481 41.4815Z' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M34.7646 22.1602C36.1543 20.338 37.1883 17.7276 37.1883 14.9928C37.1883 14.6431 37.1585 14.2935 37.0965 13.9439C34.5709 14.2491 31.3476 16.0417 29.5076 18.335C28.1565 20.0031 27.1726 22.655 27.1726 25.4283C27.1726 25.8491 27.2261 26.1898 27.2707 26.498C30.1002 26.3143 33.1048 24.3794 34.7646 22.1602Z' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -58,38 +58,39 @@
             line-height: 1.6;
         }
 
-        /* Yeni Rozet Stilleri - Eşitlenmiş */
+        /* Güncellenmiş Rozet Ayarları */
         .download-buttons {
             display: flex;
             justify-content: center;
-            gap: 1rem; /* Boşluğu biraz azalttık, daha derli toplu dursun */
+            gap: 1.5rem;       /* Butonlar arası boşluk */
             flex-wrap: wrap;
-            align-items: center;
+            align-items: center; /* Dikeyde tam ortalar */
             margin-top: 2rem;
         }
         
         .store-badge {
-            /* Ortak özellikler */
-            width: auto;
             transition: transform 0.3s ease, opacity 0.3s;
             border-radius: 8px;
+            display: block; /* Link içinde resim kaymasını önler */
         }
         
-        /* Apple için ideal yükseklik */
+        /* Apple Rozeti: Referans noktamız bu, net 50px */
         .store-badge.apple {
             height: 50px;
+            width: auto;
         }
         
-        /* Google'ın boşluklarını telafi etmek için ona özel yükseklik */
+        /* Google Rozeti: Boşlukları telafi etmek için %48 daha büyük olmalı */
         .store-badge.google {
-            height: 76px; /* Bu değer, Apple'ın 50px'i ile görsel olarak denk düşer */
+            height: 74px; /* 76px yerine 74px yaptık, görsel olarak Apple ile daha denk düşer */
+            margin-top: -1px; /* Hafif bir yukarı çekme ile yazı hizasını eşitler */
         }
         
         .store-badge:hover {
             transform: translateY(-3px);
             opacity: 0.9;
         }
-        
+                
         .store-text {
             display: flex;
             flex-direction: column;
