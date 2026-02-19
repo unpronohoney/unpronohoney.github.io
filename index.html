@@ -753,6 +753,7 @@
 
     <!-- Secret Easter Egg -->
     <button id="secret-btn" aria-label="Secret" title=""></button>
+    <input type="text" id="hiddenInput" style="position: absolute; top: -9999px; left: -9999px; opacity: 0;" autocomplete="off">
 
     <div id="secret-panel">
         <div class="panel-scanline"></div>
@@ -944,9 +945,16 @@
             isListening = true;
             btn.classList.add('active');
             btn.textContent = '🙂';
+
+            // KLAVYEYİ TETİKLEYEN KISIM
+            const hiddenInput = document.getElementById('hiddenInput');
+            if (hiddenInput) {
+                hiddenInput.value = ''; // Her tıklamada eski yazılanları temizle
+                hiddenInput.focus();
+            }
         });
 
-        // --- 2. Password Listener ---
+        // --- 2. Password Listener (Masaüstü İçin - Senin Orijinal Kodun) ---
         document.addEventListener('keydown', function(e) {
             if (!isListening || isFailed) return;
 
@@ -970,6 +978,40 @@
                 btn.textContent = '🔒';
             }
         });
+
+        // --- 2.5 MOBİL İÇİN YENİ EKLENTİ (Bunu hemen alta yapıştır) ---
+        // Telefonda klavyeden girilen değeri yakalamak için
+        const hiddenInput = document.getElementById('hiddenInput');
+            if (hiddenInput) {
+            hiddenInput.addEventListener('input', function(e) {
+                if (!isListening || isFailed) return;
+
+                // Klavyeden girilen tüm metni al (küçük harfe çevir ki garanti olsun)
+                const typedVal = hiddenInput.value.toLowerCase();
+                
+                // Girilen uzunluk kadar şifreden parça al
+                const targetVal = _k.substring(0, typedVal.length);
+
+                if (typedVal === targetVal) {
+                    // Şu ana kadar doğru harfler girildi
+                    if (typedVal === _k) {
+                        // Şifre ("mirzabal") tamamlandı!
+                        isListening = false;
+                        btn.textContent = '✅';
+                        hiddenInput.blur(); // Mobilde klavyeyi kapat
+                        openPanel();
+                    }
+                } else {
+                    // Yanlış bir harfe basıldı, hemen kilitle
+                    isFailed = true;
+                    isListening = false;
+                    btn.classList.remove('active');
+                    btn.classList.add('failed');
+                    btn.textContent = '🔒';
+                    hiddenInput.blur(); // Mobilde klavyeyi kapat
+                }
+            });
+        }
 
         // --- 3. Secret Panel ---
         function openPanel() {
@@ -1002,10 +1044,7 @@
         }
 
         function initFirestore() {
-            try {
-                // Config loaded from firebase-config.js
-                
-
+            try {                
                 // Avoid re-init
                 if (!firebase.apps.length) {
                     firebase.initializeApp(firebaseConfig);
